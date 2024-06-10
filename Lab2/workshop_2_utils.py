@@ -315,8 +315,8 @@ def get_results(output_dir, idxs):
 
 def train_gp(df) -> GaussianProcessRegressor:
     from sklearn.gaussian_process.kernels import RBF
-    X = np.vstack(df["fp"][df["sampled"]==1].tolist())
-    Y = np.vstack(df["true_affinity"][df["sampled"]==1].tolist())
+    X = np.vstack(df["fp"][df["sampled"]>=1].tolist())
+    Y = np.vstack(df["true_affinity"][df["sampled"]>=1].tolist())
     return GaussianProcessRegressor(kernel=RBF(length_scale=2.0, length_scale_bounds=(1e-1, 20.0)), random_state=0).fit(X,Y)
 
 def predict_with_gp(df, gp):
