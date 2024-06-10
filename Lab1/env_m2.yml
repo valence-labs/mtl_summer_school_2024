@@ -1,0 +1,33 @@
+# This env file is for those who use mac m2
+channels:
+  - conda-forge
+  - pytorch
+
+
+dependencies:
+  - python 
+  - pip
+  - tqdm
+  - loguru
+
+  # Scientific
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - seaborn
+  - pytorch
+  # - pyg
+  - splito
+  - auroris
+  - umap-learn
+
+  # Chemistry
+  - datamol >=0.12.1
+  - molfeat
+
+  # Others
+  - jupyterlab
+
+  - pip:
+    - torch_geometric
