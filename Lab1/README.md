@@ -21,7 +21,6 @@ conda env create -f env.yml
 The tutorials are also available on Google Colaboratory:
 
 - [00_introduction_colab](https://colab.research.google.com/github/valence-labs/mtl_summer_school_2024/blob/main/Lab1/00_introduction.ipynb)
-- [01_qsar_modeling_colab](https://colab.research.google.com/github/valence-labs/mtl_summer_school_2024/blob/main/Lab1/01_qsar_modeling.ipynb)
-- [02_virtual_screening_colab](https://colab.research.google.com/github/valence-labs/mtl_summer_school_2024/blob/main/Lab1/02_virtual_screening.ipynb)
-- [03_recap_colab](https://colab.research.google.com/github/valence-labs/mtl_summer_school_2024/blob/main/Lab1/03_recap.ipynb)
+- [01_lab1_code](https://colab.research.google.com/github/valence-labs/mtl_summer_school_2024/blob/main/Lab1/01_lab1_code.ipynb)
+- [02_recap_colab](https://colab.research.google.com/github/valence-labs/mtl_summer_school_2024/blob/main/Lab1/02_recap.ipynb)
 
