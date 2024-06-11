@@ -9,7 +9,8 @@ from torch_geometric.nn import global_mean_pool as gap, global_max_pool as gmp
 
 
 class GCNModel(nn.Module):
-    """ GCN model """
+    """GCN model"""
+
     def __init__(
         self,
         in_channels: int,
@@ -31,18 +32,24 @@ class GCNModel(nn.Module):
         self.normalize = normalize or [False] * num_layers
         self.dropout = dropout or [0.0] * num_layers
 
-        self. is_reg = is_reg
+        self.is_reg = is_reg
 
         # GCN layers:
         self.num_layers = num_layers
         self.conv_layers = nn.ModuleList()
         self.conv_layers.append(
-            GCNConv(in_channels=in_channels, out_channels=hidden_channels, normalize=self.normalize[0])
+            GCNConv(
+                in_channels=in_channels,
+                out_channels=hidden_channels,
+                normalize=self.normalize[0],
+            )
         )
         for i in range(num_layers):
             self.conv_layers.append(
                 GCNConv(
-                    in_channels=hidden_channels, out_channels=hidden_channels, normalize=self.normalize[i]
+                    in_channels=hidden_channels,
+                    out_channels=hidden_channels,
+                    normalize=self.normalize[i],
                 )
             )
 
@@ -68,13 +75,13 @@ class GCNModel(nn.Module):
         # Apply a final (linear) predictor
         out = self.out(hidden)
         return out
-    
+
     def _forward_to_pred(self, inputs):
         self.eval()
         out = self.forward(inputs)
         preds = out["pred"] if isinstance(out, dict) else out
         return preds
-    
+
     @torch.no_grad()
     def predict(self, inputs):
         if self.is_reg:
@@ -84,7 +91,6 @@ class GCNModel(nn.Module):
         preds = torch.ge(probs, 0.5).int()
         return preds
 
-    
     @torch.no_grad()
     def predict_proba(self, inputs):
         probs = self._forward_to_pred(inputs)

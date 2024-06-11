@@ -75,10 +75,14 @@ def ranking_moora(
         weights = [1] * len(objectives)
 
     if isinstance(weights, list) and len(weights) != len(objectives):
-        raise ValueError("The number of weights should be equal to the number of objectives.")
+        raise ValueError(
+            "The number of weights should be equal to the number of objectives."
+        )
 
     if any(not callable(x) for x in set(objectives)):
-        raise ValueError("The objectives should be a callable. Preferably `min` or `max`.")
+        raise ValueError(
+            "The objectives should be a callable. Preferably `min` or `max`."
+        )
 
     # Get the MOORA method class
     ranker_class = MOORA_METHODS.get(method)
@@ -90,7 +94,9 @@ def ranking_moora(
         )
 
     # Build the decision matrix object
-    decision_matrix = skcriteria.mkdm(matrix=matrix, objectives=objectives, weights=weights)
+    decision_matrix = skcriteria.mkdm(
+        matrix=matrix, objectives=objectives, weights=weights
+    )
 
     if transformer is not None:
 
