@@ -23,5 +23,6 @@ The tutorials are also available on Google Colaboratory:
 
 - [00_introduction_colab]()
 - [01_lab4_code]()
+Or on collab at https://colab.research.google.com/drive/1k7AWbdAlfUEJbb0Lj6ZcO_bhrpClFICV#scrollTo=yNaHyGqWJ9WU
 - [02_recap_colab]()
 
